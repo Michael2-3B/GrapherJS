@@ -2,6 +2,11 @@ var canvas = document.getElementById("canvas");
 var context = canvas.getContext('2d');
 var width = canvas.scrollWidth;
 var height = canvas.scrollHeight;
+var points = 25;
+var yourFunction = "x**2";
+drawFunction(yourFunction);
+var zoomIn = document.getElementById("zoomIn");
+var zoomOut = document.getElementById("zoomOut");
 
 function drawAxes(){
  context.beginPath();
@@ -11,12 +16,12 @@ function drawAxes(){
  context.moveTo(0, height/2);
  context.lineTo(width, height/2);
  context.stroke();
- for(i=0;i<width;i+=10){
+ for(i=0;i<width;i+=(500/points/2)){
   context.moveTo(i, height/2-5);
   context.lineTo(i, height/2+5);
   context.stroke();
  }
- for(i=0;i<height;i+=10){
+ for(i=0;i<height;i+=(500/points/2)){
   context.moveTo(width/2-5, i);
   context.lineTo(width/2+5, i);
   context.stroke();
@@ -24,7 +29,7 @@ function drawAxes(){
 }
 
 function getFunction(){
- var yourFunction = prompt("Please enter a function: ");
+ yourFunction = prompt("Please enter a function: ", yourFunction);
  if(yourFunction != null){
   context.clearRect(0,0, width, height);
   drawAxes();
@@ -33,10 +38,26 @@ function getFunction(){
 }
 
 function drawFunction(fofx){
- for(x=-25;x<25;x+=0.1){
+ for(x=-points;x<points;x+=(points/1000)){
   var y = eval(fofx);
-  var realX = 10*(x+25);
-  var realY = height-(10*(y+25));
+  var realX = (500/points/2)*(x+points);
+  var realY = height-((500/points/2)*(y+points));
   context.fillRect(realX, realY, 2, 2);
  }
+}
+
+function zoomIn(){
+ if(points>1){
+  points -= 1;
+  context.clearRect(0,0, width, height);
+  drawAxes();
+  drawFunction(yourFunction);
+ }
+}
+
+function zoomOut(){
+ points += 1;
+ context.clearRect(0,0, width, height);
+ drawAxes();
+ drawFunction(yourFunction);
 }
