@@ -4,3 +4,7 @@
 	height: 100vh;
 	float: left;
 }
+
+li {
+    font-family: "Courier New";
+}
