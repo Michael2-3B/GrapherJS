@@ -1,0 +1,6 @@
+.column {
+	width: 50%;
+	display: inline-block;
+	height: 100vh;
+	float: left;
+}
