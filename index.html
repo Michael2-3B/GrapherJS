@@ -2,10 +2,17 @@
 <html>
 <head>
 <title>Javascript Grapher by Michael2_3B</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<body onload="initialize()">
-<canvas id="canvas" width="500" height="500" style="border:5px solid #FF0000;"></canvas>
-<p id="caption"></p>
+<body onload="drawAxes()">
+<div id="GraphWindow" class="column">
+    <canvas id="canvas" width="500" height="500" style="border:5px solid #FF0000;"></canvas>
+</div>
+<div id="inputSection" class="column">
+    <button id="functionButton" onclick="getFunction()">Click here to enter a function.</button>
+</div>
+<p id="caption">
+</p>
 <SCRIPT src="js/main.js"></SCRIPT>
 </body>
 </html>
