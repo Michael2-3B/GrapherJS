@@ -1,4 +1,4 @@
-function startGame(){
+function initialize(){
  var caption = document.getElementById("caption");
  caption.innerHTML = "This text was inserted from the javascript file.";
 }
