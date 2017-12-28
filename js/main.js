@@ -5,33 +5,24 @@ var height = canvas.scrollHeight;
 var points = 25;
 var yourFunction = "x^2";
 drawFunction(yourFunction);
-var zoomInButton = document.getElementById("zoomIn");
-var zoomOutButton = document.getElementById("zoomOut");
-var changes;
 
 function drawAxes(){
  context.beginPath();
  context.moveTo(width/2, 0);
  context.lineTo(width/2, height);
  context.stroke();
- context.closePath();
  context.moveTo(0, height/2);
  context.lineTo(width, height/2);
  context.stroke();
- context.closePath();
  for(i=0;i<width;i+=(500/points/2)){
-  context.beginPath();
   context.moveTo(i, height/2-5);
   context.lineTo(i, height/2+5);
   context.stroke();
-  context.closePath();
  }
  for(i=0;i<height;i+=(500/points/2)){
-  context.beginPath();
   context.moveTo(width/2-5, i);
   context.lineTo(width/2+5, i);
   context.stroke();
-  context.closePath();
  }
 }
 
@@ -72,7 +63,7 @@ function zoomOut(){
 
 function fixFunction(functionString) {
   functionString = functionString.replace(/[^a-z+\-*^=0-9\(\)/]/g,"");
-  changes = [
+  var changes = [
     ["^","**"],
     ["sin(","Math.sin("],
     ["cos(","Math.cos("],
