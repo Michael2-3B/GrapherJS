@@ -5,8 +5,8 @@ var height = canvas.scrollHeight;
 var points = 25;
 var yourFunction = "x^2";
 drawFunction(yourFunction);
-var zoomIn = document.getElementById("zoomIn");
-var zoomOut = document.getElementById("zoomOut");
+var zoomInButton = document.getElementById("zoomIn");
+var zoomOutButton = document.getElementById("zoomOut");
 var changes;
 
 function drawAxes(){
