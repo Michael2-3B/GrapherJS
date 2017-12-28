@@ -35,6 +35,8 @@ function getFunction(){
 
 function drawFunction(fofx){
  fofx = fixFunction(fofx);
+ context.clearRect(0,0,width,height);
+ drawAxes();
  for(x = -points; x < points; x += (points/1000)){
   var y = eval(fofx);
   var realX = (500/points/2)*(x+points);
@@ -46,16 +48,12 @@ function drawFunction(fofx){
 function zoomIn(){
  if(points>1){
   points -= 1;
-  context.clearRect(0,0, width, height);
-  drawAxes();
   drawFunction(yourFunction);
  }
 }
 
 function zoomOut(){
  points += 1;
- context.clearRect(0,0, width, height);
- drawAxes();
  drawFunction(yourFunction);
 }
 
