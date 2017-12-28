@@ -10,27 +10,8 @@
 </div>
 <div id="inputSection" class="column">
     <button id="functionButton" onclick="getFunction()">Click here to enter a function.</button><br><br>
-    <button id="zoomIn" onmousedown="zoomIn()">Zoom In</button><br>
-    <button id="zoomOut" onmousedown="zoomOut()">Zoom Out</button><br><br>
-    GrapherJS currently requires javascript notation in functions.<br><br>
-    So for example:<br>
-    <ul>
-        <li>
-            x^2 <i>should be</i> x**2
-        </li>
-        <li>
-            3x <i>should be</i> 3*x
-        </li>
-        <li>
-            abs(x) <i>should be</i> Math.abs(x)
-        </li>
-        <li>
-            sin(x) <i>should be</i> Math.sin(x)
-        </li>
-        <li>
-            <i>Both</i> y=x <i>and</i> x <i>will work.</i>
-        </li>
-    </ul>
+    <button id="zoomIn" onclick="zoomIn()">Zoom In</button><br>
+    <button id="zoomOut" onclick="zoomOut()">Zoom Out</button>
 </div>
 <SCRIPT src="js/main.js"></SCRIPT>
 </body>
