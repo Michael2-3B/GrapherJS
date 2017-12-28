@@ -27,6 +27,7 @@ function drawAxes(){
   context.lineTo(width/2+5, i);
   context.stroke();
  }
+ context.closePath();
 }
 
 function getFunction(){
