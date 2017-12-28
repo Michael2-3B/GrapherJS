@@ -3,7 +3,7 @@ var context = canvas.getContext('2d');
 var width = canvas.scrollWidth;
 var height = canvas.scrollHeight;
 var points = 25;
-var yourFunction = "x**2";
+var yourFunction = "x^2";
 drawFunction(yourFunction);
 var zoomIn = document.getElementById("zoomIn");
 var zoomOut = document.getElementById("zoomOut");
