@@ -30,6 +30,8 @@ function drawAxes(){
 }
 
 function drawFunction(fofx){
+ context.clearRect(0,0, width, height);
+ drawAxes();
  for(x = -points; x < points; x += (points/1000)){
   var y = eval(fofx);
   var realX = (500/points/2)*(x+points);
@@ -41,16 +43,12 @@ function drawFunction(fofx){
 function zoomIn(){
  if(points>1){
   points -= 1;
-  context.clearRect(0,0, width, height);
-  drawAxes();
   drawFunction(yourFunction);
  }
 }
 
 function zoomOut(){
  points += 1;
- context.clearRect(0,0, width, height);
- drawAxes();
  drawFunction(yourFunction);
 }
 
@@ -64,8 +62,6 @@ function addToFunction(token) {
    //Array.join() takes all of the elements in an array and separates them with the argument passed. In this case, we want nothing between each token, so we pass it the empty string.
     yourFunction = javascriptify(funcArray.join(''));
     //Redraw canvas.
-    context.clearRect(0,0, width, height);
-    drawAxes();
     drawFunction(yourFunction);
   }
   else {
@@ -75,8 +71,6 @@ function addToFunction(token) {
     funcArray.pop()
    //explained before.
     yourFunction = javascriptify(funcArray.join(''));
-    context.clearRect(0,0, width, height);
-    drawAxes();
     drawFunction(yourFunction);
   }
 }
@@ -84,13 +78,13 @@ function addToFunction(token) {
 //when the page loads, create the buttons. I didn't want to create each button by hand, so I have a function that does it for me. 
 window.onload = function() {
  //add stuff to this array to add more functions.
-  var buttons = ["1","2","3","4","5","6","7","8","9","0","x",".","+","-","*","/","^","(",")","abs(","sqrt(","sin(","cos(","tan(","<-"];
- //For each element in th array 'buttons'...
+  var buttons = ["1","2","3","4","5","6","7","8","9","0","x","<-",".","+","-","*","/","^","(",")","abs(","sqrt(","sin(","cos(","tan("];
+ //For each token in the array 'buttons'...
   buttons.forEach(function(buttonName) {
    //...create a button element...
     var button = document.createElement("BUTTON");
    //...if it is a number...
-   if (buttons.indexOf(buttonName) <= 10) {
+   if (buttons.indexOf(buttonName) <= 9) {
       //...add it to the numberButtons div...
      document.getElementById('numberButtons').appendChild(button);
    }
@@ -102,10 +96,10 @@ window.onload = function() {
     button.setAttribute("onclick","addToFunction('"+buttonName+"')");
    //...set its inner text to the button name (the token) 
     button.innerText = buttonName;
-   //... and set the class of the button.
+   //... and set the class of the button to "functionButtonData".
     button.setAttribute("class","functionButtonData");
   });
- //initialize the functionDisplay div.
+ //Initialize the functionDisplay div.
   var i = 0;
   funcArray.forEach(function(funcArrayItem) {
     i++
@@ -113,7 +107,7 @@ window.onload = function() {
   });
 }
 
-//basically the 'fixFunction' function from last revision, but I changed the name and removed the security thing. 
+//Basically the 'fixFunction' function from last revision, but I changed the name and removed the security thing, because of the other changes.
 function javascriptify(functionString) {
   changes = [
     ["^","**"],
