@@ -27,10 +27,8 @@ function drawAxes(){
 }
 
 function getFunction(){
- yourFunction = prompt("Please enter a function: ", yourFunction);
+ var yourFunction = document.getElementById("myfunction").value;
  if(yourFunction != null){
-  context.clearRect(0,0, width, height);
-  drawAxes();
   drawFunction(yourFunction);
  }
 }
