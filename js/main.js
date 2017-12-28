@@ -7,6 +7,7 @@ var yourFunction = "x**2";
 drawFunction(yourFunction);
 var zoomIn = document.getElementById("zoomIn");
 var zoomOut = document.getElementById("zoomOut");
+var changes;
 
 function drawAxes(){
  context.beginPath();
@@ -38,6 +39,7 @@ function getFunction(){
 }
 
 function drawFunction(fofx){
+ fofx = fixFunction(fofx);
  for(x=-points;x<points;x+=(points/1000)){
   var y = eval(fofx);
   var realX = (500/points/2)*(x+points);
@@ -60,4 +62,20 @@ function zoomOut(){
  context.clearRect(0,0, width, height);
  drawAxes();
  drawFunction(yourFunction);
+}
+
+function fixFunction(functionString) {
+  functionString = functionString.replace(/[^a-z+\-*^=0-9\(\)/]/g,"");
+  changes = [
+    ["^","**"],
+    ["sin(","Math.sin("],
+    ["cos(","Math.cos("],
+    ["tan(","Math.tan("],
+    ["abs(","Math.abs("],
+    ["sqrt(","Math.sqrt("]
+  ];
+  changes.forEach(function(change) {
+    functionString = functionString.replace(change[0],change[1]);
+  });
+  return functionString
 }
