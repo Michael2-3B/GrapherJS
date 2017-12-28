@@ -14,20 +14,25 @@ function drawAxes(){
  context.moveTo(width/2, 0);
  context.lineTo(width/2, height);
  context.stroke();
+ context.closePath();
  context.moveTo(0, height/2);
  context.lineTo(width, height/2);
  context.stroke();
+ context.closePath();
  for(i=0;i<width;i+=(500/points/2)){
+  context.beginPath();
   context.moveTo(i, height/2-5);
   context.lineTo(i, height/2+5);
   context.stroke();
+  context.closePath();
  }
  for(i=0;i<height;i+=(500/points/2)){
+  context.beginPath();
   context.moveTo(width/2-5, i);
   context.lineTo(width/2+5, i);
   context.stroke();
+  context.closePath();
  }
- context.closePath();
 }
 
 function getFunction(){
@@ -41,7 +46,7 @@ function getFunction(){
 
 function drawFunction(fofx){
  fofx = fixFunction(fofx);
- for(x=-points;x<points;x+=(points/1000)){
+ for(x = -points; x < points; x += (points/1000)){
   var y = eval(fofx);
   var realX = (500/points/2)*(x+points);
   var realY = height-((500/points/2)*(y+points));
