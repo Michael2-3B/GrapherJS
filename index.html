@@ -9,10 +9,13 @@
     <canvas id="canvas" width="500" height="500" style="border:5px solid #FF0000;"></canvas>
 </div>
 <div id="inputSection" class="column">
-    <input type="text" id="myfunction" value="x^2"><br>
-    <button id="submit" onclick="getFunction()">Submit</button><br><br>
-    <button id="zoomIn" onclick="zoomIn()">Zoom In</button><br>
-    <button id="zoomOut" onclick="zoomOut()">Zoom Out</button>
+    <!--Removed the function button, not needed any more!-->
+    <button id="zoomIn" onmousedown="zoomIn()">Zoom In</button><br>
+    <button id="zoomOut" onmousedown="zoomOut()">Zoom Out</button><br><br>
+    <!--I added a div that will display the function.-->
+    <div id="functionDisplay" height="10vh">y=</div>
+    <!--I added a div for the buttons.-->
+    <div id="functionButtons"><div id="numberButtons"></div></div>
 </div>
 <SCRIPT src="js/main.js"></SCRIPT>
 </body>

@@ -1,3 +1,8 @@
+/* 
+  I did some pretty basic styling, just to make it look prettier, I guess. 
+  I don't know what you want this to look like, so I kept it simple.
+*/
+
 .column {
 	width: 50%;
 	display: inline-block;
@@ -7,4 +12,30 @@
 
 li {
     font-family: "Courier New";
+}
+
+button {
+    border: 2px solid #eee;
+    border-radius: 4px;
+    margin: 3px;
+}
+
+#functionButtons {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	align-content: space-between;
+}
+
+#numberButtons button {
+  width: 50px; 
+  height: 50px;
+  background: #eeea;
+  margin: 5px;
+  display: inline-block;
+}
+
+#numberButtons {
+	/*5 + 50 + 5 + 5 + 50 + 5 + 5 + 50 + 5 = 180*/
+	width: 180px;
 }
