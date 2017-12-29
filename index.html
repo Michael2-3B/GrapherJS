@@ -1,19 +1,22 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-<title>Javascript Grapher by Michael2_3B</title>
-<link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body onload="drawAxes()">
-<div id="GraphWindow" class="column">
-    <canvas id="canvas" width="500" height="500" style="border:5px solid #FF0000;"></canvas>
-</div>
-<div id="inputSection" class="column">
-    <input type="text" id="myfunction" value="x^2"><br>
-    <button id="submit" onclick="getFunction()">Submit</button><br><br>
-    <button id="zoomIn" onclick="zoomIn()">Zoom In</button><br>
-    <button id="zoomOut" onclick="zoomOut()">Zoom Out</button>
-</div>
-<SCRIPT src="js/main.js"></SCRIPT>
-</body>
+    <head>
+        <title>Javascript Grapher by Michael2_3B</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body onload="drawAxes()">
+        <div id="GraphWindow" class="column">
+            <canvas id="canvas" width="500" height="500" style="border:5px solid #FF0000;"></canvas>
+        </div>
+        <div id="inputSection" class="column">
+            <!--Removed the function button, not needed any more!-->
+            <button id="zoomIn" onmousedown="zoomIn()">Zoom In</button><br>
+            <button id="zoomOut" onmousedown="zoomOut()">Zoom Out</button><br><br>
+            <!--I added a div that will display the function.-->
+            <div id="functionDisplay" height="10vh">y=</div>
+            <!--I added divs for the buttons.-->
+            <div id="numberButtons"></div><div id="functionButtons"></div>
+        </div>
+        <script src="js/main.js"></script>
+    </body>
 </html>
